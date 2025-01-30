@@ -1,0 +1,1 @@
+# Numetry_Task10_FullPageAos
