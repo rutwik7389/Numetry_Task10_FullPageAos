@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullPage.js Website</title>
+
+    <!-- FullPage.js v2 (FREE) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullPage.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+
+        /* Scroll Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #ff5733;
+            width: 0%;
+            z-index: 1000;
+        }
+
+        /* FullPage Sections */
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Background Colors */
+        .section:nth-child(1) { background: #ffcc00; }
+        .section:nth-child(2) { background: #ff5733; }
+        .section:nth-child(3) { background: #33c1ff; }
+
+        /* Animated Cards */
+        .card {
+            width: 250px;
+            height: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Swiper Testimonial Slider */
+        .swiper {
+            width: 80%;
+            margin: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- FullPage Sections -->
+    <div id="fullpage">
+        
+        <!-- Section 1 -->
+        <div class="section">
+            <div class="card" data-aos="fade-up">
+                <h3>Rutwik Sindkar</h3>
+                <p>I am a passionate Full Stack Developer with expertise in Angular, Spring Boot, and MySQL. I have a keen interest in cloud computing and real-time data management.</p>
+              
+                <button style="padding: 10px 20px; background: #ff5733; color: white; border: none; border-radius: 5px;">View Portfolio</button>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <div class="card" data-aos="zoom-in">
+                <h3>Skills & Expertise</h3>
+                <ul>
+                    <li>Full Stack Development (Angular, Spring Boot, MySQL)</li>
+                    <li>AWS Certified Cloud Practitioner</li>
+                    <li>Strong problem-solving and project management skills</li>
+                    <li>Experience with real-time data processing</li>
+                </ul>
+                <button style="padding: 10px 20px; background: #ff5733; color: white; border: none; border-radius: 5px;">Connect with Me</button>
+            </div>
+        </div>
+
+        <!-- Section 3 - Testimonial Slider -->
+        <div class="section">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">"Great Service!"</div>
+                    <div class="swiper-slide">"Loved the experience!"</div>
+                    <div class="swiper-slide">"Highly recommended!"</div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery (Required for FullPage.js v2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- FullPage.js v2 (FREE) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullPage.min.js"></script>
+
+    <!-- Swiper Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize FullPage.js (Free Version)
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                autoScrolling: true,
+                navigation: true
+            });
+        });
+
+        // Initialize AOS
+        AOS.init();
+
+        // Initialize Swiper.js for Testimonials
+        new Swiper('.swiper', {
+            loop: true,  
+            pagination: { el: '.swiper-pagination', clickable: true },
+            autoplay: { delay: 3000 }, 
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            let scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercent + '%';
+        });
+
+    </script>
+
+</body>
+</html>
